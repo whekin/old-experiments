@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Шарик</title>
+
+	<meta name="description" content="Эксперимент js canvas">
+	<meta name="keywords" content="canvas, js, эксперимент">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Kalishin Stanislav">
+	<meta name="theme-color" content="#0288d1">
+	<meta name="msapplication-navbutton-color" content="">
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="">
+
+	<link rel="shortcut icon" sizes="64x64" href="icon-64x64.png" type="">
+	<link rel="icon" sizes="64x64" href="res/icon-64x64.png" type="">
+	<link rel="apple-touch-icon" href="icon-64x64.png">
+	
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/main.css">
+
+	<script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
+	<style></style>
+
+</head>
+
+<body>
+	<header>
+		<div class="btn" id="set">ОПЦИИ</div>
+
+		<form class="" id="settings" style="display: none">
+			<div class="btn" id="fullscreen">ПОЛНОЭКРАННЫЙ РЕЖИМ</div>
+			<a href="../../index.html" class="btn" id="home">Домой</a>
+
+			<h3>Настройки</h3>
+			<div class="warning" id="warning">
+				Для активирования изменений, нужно приминить их в самом низу!
+				<div class="message">Клик для скрытия!</div>
+			</div>
+			<label>
+				<h4>Цвет</h4>
+				<input type="color" name="color" value="#FFA000">
+				<p class="comment">
+					По умолчанию круг окрашен в прекрасный градиент.
+					Ты можешь залить круг сплошным цветом.
+				</p>
+			</label>
+
+			<label>
+        <h4>Цвет фона</h4>
+        <input type="color" name="back-color" value="#fcfcfc">
+        <p class="comment">
+        	Если сейчас ночь, то можно изменить цвет на что-нибудь тёмненькое!
+        </p>
+      </label>
+
+			<label>
+				<h4>Радиус</h4>
+				<input type="number" name="radius" step="1" value="50">
+				<p class="comment">Просто радиус круга в пикселях. Вводить более 200(в зависимости от размера экрана) не имеет смысла.</p>
+			</label>
+
+			<label>
+				<h4>Коэффициент взаимодействия с мышью/пальцем</h4>
+				<input type="number" step="0.01" name="speedDetect" value="0.09">
+				<p class="comment">Чем больше значение, тем более реакивным становится круг. Рекомендуемый диапазон: 0.01..0.2</p>
+			</label>
+
+			<label>
+				<h4>Коэффициент силы трения "воздуха"</h4>
+				<input type="number" name="friction" step="0.001" value="0.995">
+				<p class="comment">Когда меньше 1-го, круг замедляется. Когда больше нуля, круг ускоряется. Если ты поставил(а) значение больше единицы, то лучше это 	погасить, отдавая энергию стене. Рекомендуемый диапазон: 0.9..1.05, при том 1.05 при гашении стены 0.1</p>
+			</label>
+
+			<label>
+				<h4>Коэффициент отдачи энергии от "стены"</h4>
+				<input type="number" name="frictionWall" step="0.05" value="0.9">
+				<p class="comment">Если этот параметр более 1-цы, то виртуальные стены становятся, как батут(почти): круг увеличивает скорость после каждого удара об стену. В этом случае, хорошо бы настроить верхний параметр, иначе скорость будет всё выше и выше..</p>
+			</label>
+			<h3>Автор</h3>
+			<p>
+				<a href="https://vk.com/stanislavkalishin" target="_blank" class="author">Он тут</a>
+			</p>
+			<h3>Поделиться</h3>
+			<p>
+				<script type="text/javascript">
+					document.write(VK.Share.button());
+				</script>
+				Да-да, сайтов без этой штуки – нет!
+			</p>
+				<div class="btn" id="send">применить</div>
+		</form>
+	</header>
+	<main>
+		<!--### Canvas -->
+	</main>
+
+	<script src="dist/bundle.js"></script>
+
+	  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107043848-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		
+		function gtag(){dataLayer.push(arguments)};
+		gtag('js', new Date());
+
+		gtag('config', 'UA-107043848-1');
+	</script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46314936 = new Ya.Metrika({
+                    id:46314936,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    ecommerce:"dataLayer"
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/46314936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</html>

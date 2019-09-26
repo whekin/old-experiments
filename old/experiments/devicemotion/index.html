@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="ru" ><!--manifest=""-->
+	<!--
+	* last date:
+	* Status: 
+	-->
+<head>
+
+	<meta charset="utf-8">
+
+	<title></title>
+
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Stanislav Kalishin">
+	<!-- Chrome android 5 and more -->
+	<meta name="theme-color" content="#0288d1">
+	<!-- Windows / Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="">
+	<!-- IOS --> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="">
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<!-- -->
+	<meta name="msapplication-tap-highlight" content="no" >
+	<!-- Tile icon for Win8 and Win10 -->
+	<meta name="msapplication-TileImage" content="">
+	<meta name="msapplication-TileColor" content="">
+	<meta name="application-name" content="">
+	<!-- При наведении подсказка... -->
+	<meta name="msapplication-tooltip" content=""> 
+	<!--For android-->
+	<link rel="manifest" href="">
+	<!-- Отключение выделения телефонов -->
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- Временное, для отмены кеширования -->
+	<meta http-equiv="Cache-Control" content="no-cache">
+	
+	<!-- Favicons -->
+	<link rel="icon" href="" sizes="64x64" type="">
+	<link rel="apple-touch-icon" sizes=""  href="">
+	<link rel="apple-touch-icon-precomposed="">
+	
+	<!-- Vk, Facebook -->
+	<meta property="og:locale" content="">
+	<meta property="og:type" content="">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	
+	<!-- Twitter cards -->
+	<meta name="twitter:card" content="">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+	
+	<!-- Google+ -->
+	<meta itemprop="name" content="">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	
+	<link href="../../css/normalize.min.css" rel="stylesheet" media="">
+	<link href="css/styles.css" rel="stylesheet" media="">
+	<link href="" rel="stylesheet" media="">
+	
+	<style>
+		#canvas {
+			position: absolute;
+			overflow: hidden;
+		}
+
+	</style>
+
+	<noscript></noscript>
+
+</head>
+
+<body>
+	<canvas id="canvas" ></canvas>
+
+	   <!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107043848-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments)};
+		gtag('js', new Date());
+
+		gtag('config', 'UA-107043848-1');
+	</script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46314936 = new Ya.Metrika({
+                    id:46314936,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    ecommerce:"dataLayer"
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/46314936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+	<script src="js/main.js"></script>
+
+	<script>
+		
+		let r = 75;
+		
+		let ctx = canvas.getContext("2d");
+		
+		canvas.width = innerWidth;
+		canvas.height = innerHeight;
+		
+		
+		addEventListener("devicemotion", (e) => {
+			let g = {
+				x: e.accelerationIncludingGravity.x,
+				y: e.accelerationIncludingGravity.y,
+				z: e.accelerationIncludingGravity.z
+			}
+			ctx.fillStyle = "#263238";
+			ctx.fillRect(0,0,canvas.width,canvas.height);
+			ctx.fillStyle = "#fff";
+			ctx.beginPath();
+			ctx.arc(canvas.width/2 - g.x*((canvas.width-2*r)/10)/2, canvas.height/2 + g.y*((canvas.height-2*r)/10)/2, r, 0, Math.PI * 2, true);
+			ctx.fill();
+		});
+	</script>
+
+</body>
+<html>

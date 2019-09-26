@@ -1,0 +1,16 @@
+@keyframes fade_in_words {
+	from {
+		transform: rotateZ(-30deg) translate(10px, 20px);
+		
+	}
+
+	to {
+		transform: rotateZ(0) translate(0, 0);
+	}
+}
+
+.fade_in_word {
+	position: relative;
+	display: inline-block;
+	animation: fade_in_words 300ms forwards;
+}

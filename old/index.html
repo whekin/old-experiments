@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="ru" >
+	<!--
+	* last date: 26.10.2017
+	* Status: dev
+	-->
+<head>
+
+	<meta charset="utf-8">
+
+	<title>
+		Whekin
+	</title>
+
+	<meta name="description" content="Личный сайт Станислава Калишина. Тут экперементы JavaScript canvas, дизайн и другое.">
+	<meta name="keywords" content="Станислав Калишин, блог, canvas, js, web">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="github.com/whekin">
+
+	<meta name="theme-color" content="#ff5722">
+	<!-- Windows / Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#0288d1">
+	<!-- IOS -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="">
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<!-- -->
+	<meta name="msapplication-tap-highlight" content="no" >
+	<!-- Tile icon for Win8 and Win10 -->
+	<meta name="msapplication-TileImage" content="">
+	<meta name="msapplication-TileColor" content="">
+	<meta name="application-name" content="">
+	<!-- При наведении подсказка... -->
+	<meta name="msapplication-tooltip" content="Title">
+	<!--For android-->
+	<link rel="manifest" href="">
+
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- Favicons -->
+	<link rel="icon" href="images/favicon/icon-64x64.png" sizes="64x64" type="">
+	<link rel="apple-touch-icon" sizes=""  href="images/favicon/icon-64x64.png">
+	<link rel="apple-touch-icon-precomposed" href="images/favicon/icon-64x64.png">
+
+	<!-- Vk, Facebook -->
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Whekin">
+	<meta property="og:description" content="Экперименты, программы, инструменты и другое на этом сайте.">
+	<meta property="og:image" content="images/favicon/favicon-64x64.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="64">
+	<meta property="og:image:height" content="64">
+	<meta property="og:url" content="https://whekin.github.io/">
+	<meta property="og:site_name" content="whekin.github.io">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
+	<link href="css/waves.min.css" rel="stylesheet" media="">
+	<link href="css/styles.css" rel="stylesheet" media="">
+</head>
+<body>
+	<header class="header" >
+		<nav>
+			<div class="logo">Whekin</div>
+			<div class="github">
+			<a href="https://github.com/whekin/whekin.github.io" target="_blank"><img class="github__ico" src="images/github.png" alt="github repository" title="github repository"></a>
+		</div>
+		</nav>
+	</header>
+
+	<main>
+		<h1 class="center">Эксперименты и инструменты</h1>
+
+		<ul class="row around-xs middle-xs container-fluid items">
+			<li class=""><a href="experiments/canvas_circle/index.html" class="card">Свободный мячик</a></li>
+			<li class=""><a href="experiments/fireworks/index.html" class="card">Фейерверк</a></li>
+			<li class=""><a href="experiments/coordinate_system/index.html" class="card">График функции</a></li>
+			<li class=""><a href="ins/harmonizer/index.html" class="card">Гармонизатор гамм</a></li>
+			<li><a href="experiments/velocity/index.html" class="card for_mobile">Спидометр</a></li>
+			<li><a href="experiments/multitouch/index.html" class="card for_mobile">Мультитач</a></li>
+		</ul>
+	</main>
+
+	<footer class="footer" >
+		<div class="footer__content" >
+			Whekin© 2018 <a href="mailto:stanislavkalishin@gmail.com">stanislavkalishin@gmail.com</a>
+		</div>
+	</footer>
+
+<!-- JS -->
+	   <!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107043848-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments)};
+		gtag('js', new Date());
+
+		gtag('config', 'UA-107043848-1');
+	</script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46314936 = new Ya.Metrika({
+                    id:46314936,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    ecommerce:"dataLayer"
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/46314936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <script src="./js/device.min.js"></script>
+    <script src="./js/waves.min.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+<html>

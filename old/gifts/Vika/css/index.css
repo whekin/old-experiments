@@ -1,0 +1,106 @@
+body {
+    overflow: hidden;
+    background-color: #fafafa;
+    margin: 0;
+    opacity: 0;
+}
+
+body.start {
+    animation: body_start 1s ease forwards;
+}
+
+@keyframes body_start {
+    to {
+        opacity: 1;
+    }
+}
+
+#happy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fafafa;
+}
+
+
+#happy.start {
+    animation: start_happy 1s ease;
+}
+
+@keyframes start_happy {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateX(100vw);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+.text-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../back.jpg") no-repeat;
+    background-size: cover;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.text-wrap.start {
+    transition-duration: 1s;
+    opacity: 0;
+    transform: scale(0.8) translateX(-120vw);
+}
+
+.text-wrap.hide {
+    display: none;
+}
+.text {
+    z-index: 10;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 25px 5px rgba(255, 255, 255, 0.3);
+    flex-basis: 70%;
+    border-radius: 10px;
+
+}
+
+.text h1 {
+    text-align: center;
+    color: #ff9800;
+    font: 28px sans-serif;
+}
+
+.text p {
+    padding: 10px 15px;
+    font: 17px sans-serif;
+    color: #444;
+    line-height: 150%;
+}
+
+@keyframes fade_in_words {
+    from {
+        transform: rotateZ(-30deg) translate(10px, 20px);
+        opacity: 0.1;
+
+    }
+
+    to {
+        transform: rotateZ(0) translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.fade_in_word {
+    position: relative;
+    display: inline-block;
+    animation: fade_in_words 300ms forwards;
+}

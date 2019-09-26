@@ -1,0 +1,136 @@
+@import url(../css/normalize.min.css);
+@import url(../css/flexboxgrid.min.css);
+.card {
+  display: block;
+  padding: 3vw;
+  margin: .5em 0;
+  border-radius: 10px;
+  background-color: rgba(26, 32, 38, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  font-size: 20px;
+  color: #ff5722; }
+  .card__header {
+    text-align: center; }
+  .card__footer {
+    margin-top: 1em; }
+  .card:hover {
+    background-color: rgba(26, 32, 38, 0.2);
+    color: white; }
+
+ul.items li {
+  list-style-type: none; }
+
+.card.waves-effect .waves-ripple {
+  background-color: #ff5722;
+  z-index: -1; }
+
+a {
+  color: #1976D2;
+  text-decoration: none;
+  cursor: pointer; }
+
+a:hover {
+  text-decoration: none; }
+
+.header nav {
+  background-color: #ff5722;
+  height: 60px;
+  line-height: 60px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); }
+
+.header nav .logo {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff; }
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.14);
+  color: #fff; }
+
+html {
+  box-sizing: border-box;
+  font: 300 16px "Roboto", sans-serif;
+  line-height: 150%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+body {
+  background-color: #fcfcfc;
+  overflow-x: hidden; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1.1;
+  color: #37474F; }
+
+h1 {
+  font-size: 2.7rem;
+  line-height: 110%;
+  margin: 2.1rem 0 1.68rem 0; }
+
+h2 {
+  font-size: 2.4rem;
+  line-height: 110%;
+  margin: 1.78rem 0 1.424rem 0; }
+
+h3 {
+  font-size: 2rem;
+  line-height: 110%;
+  margin: 1.46rem 0 1.168rem 0; }
+
+h4 {
+  font-size: 1.6rem;
+  line-height: 110%;
+  margin: 1.14rem 0 0.912rem 0; }
+
+h5 {
+  font-size: 1.35rem;
+  line-height: 110%;
+  margin: 0.82rem 0 0.656rem 0; }
+
+h6 {
+  font-size: 1rem;
+  line-height: 110%;
+  margin: 0.5rem 0 0.4rem 0; }
+
+em {
+  font-style: italic; }
+
+strong {
+  font-weight: 500; }
+
+small {
+  font-size: 75%; }
+
+main {
+  padding-bottom: 80px; }
+
+.footer {
+  padding: 10px 0;
+  margin: 0;
+  background-color: #eee;
+  margin-top: 0; }
+
+.footer__content {
+  padding: 0 15px; }
+
+.center {
+  text-align: center; }
+
+body > main > h1 {
+  color: #ff5722; }
+
+.github {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  bottom: 0;
+  overflow: hidden; }
+
+.github__ico {
+  width: 40px;
+  height: 40px;
+  filter: invert(100%); }
+
+/*# sourceMappingURL=styles.css.map */

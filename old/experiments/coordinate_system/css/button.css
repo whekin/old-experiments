@@ -1,0 +1,39 @@
+.btn, .btn-toggle {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    padding: 0 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    border-radius: 2px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.18);
+}
+
+.btn-toggle::before {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition-duration: 0.4s;
+}
+
+.btn-toggle.active {
+    
+}
+
+.btn-toggle.active::before {
+    background: rgba(255, 255, 255, 0.2);
+    left: 12%;
+    right: 12%;
+}

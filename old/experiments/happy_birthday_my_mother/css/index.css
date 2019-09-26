@@ -1,0 +1,82 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden;
+	visibility: hidden; /* start.js in visible past load */
+	background-color: #fcfcfc;
+	word-wrap: 3em;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+
+body > header {
+	background-color: #D500F9;
+	height: 57px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo {
+	color: white;
+	font-family: 'Lobster', cursive;
+	font-size: 27px;
+}
+
+main {
+	margin: 15px;
+}
+
+main + footer {
+	background-color: #757575;
+	height: 57px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0 15px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+.happy_birthday {
+	margin: 50px 0;
+	background-color:;
+	
+}
+
+.happy_birthday__text {
+	border-left: 5px solid #D500F9;
+	padding: 10px 15px;
+	background-color: #E1BEE7;
+	border-radius: 5px;
+	box-shadow: 0 0 20px #999;
+	transform: height 0.3s ease;
+}
+
+@media only screen and (min-width: 400px) {
+	.happy_birthday__text {
+		width: 85%;
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	.happy_birthday__text {
+		width: 70%;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.happy_birthday__text {
+		width: 55%;
+	}
+}
+
+#game_canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #fafafa;
+}

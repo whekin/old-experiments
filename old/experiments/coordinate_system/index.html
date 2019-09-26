@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Визуализатор функций</title>
+
+	<meta name="description" content="Здесь вы можете визуализировать функции">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Kalishin Stanislav">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+
+	<meta name="theme-color" content="#4FC3F7">
+	<!-- Sets whether a web application runs in full-screen mode. -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<link rel="shortcut icon" href="icon.png" sizes="64x64" type="image/png">
+	<link rel="apple-touch-icon" href="icon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="" href="">
+	<link rel="apple-touch-startup-image" href="">
+
+	<!-- Tile icon for Win8 and Win10 -->
+	<meta name="msapplication-TileImage" content="">
+	<meta name="msapplication-TileColor" content="">
+	<meta name="application-name" content="">
+	<meta name="msapplication-tooltip" content="Title">
+
+	<meta property="og:title" content="Coordinate system">
+	<meta property="og:type" content="">
+	<meta property="og:image" content="icon.png">
+	<meta property="og:image:width" content="">
+	<meta property="og:image:height" content="">
+	<meta property="og:url" content="">
+	<meta property="og:locale" content="ru-RU">
+	<meta property="og:description" content="Здесь вы можете визуализировать функции">
+	<meta property="og:site_name" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link href="css/waves.min.css" rel="stylesheet" media="">
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+	<link href="css/app.css" rel="stylesheet" media="">
+
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
+</head>
+
+<body>
+	<div class="content">
+		<header class="top-panel">
+            <div class="funcs-set-add-wrap">
+    			<div class="funcs-set-wrap">
+                    <div class="func-set" data-num=0>
+                        <span class="func-input btn waves-effect waves-light" data-num="0">sin(x - mx) * my / (x - mx) * sin(x)</span><span class="del btn waves-effect waves-light">×</span>
+                        </div>
+                    </div>
+                <div id="add" class="btn waves-effect waves-light">+</div>
+                </div>
+            <div class="info-wrap">
+                <span id="info_btn" class="info-btn btn waves-effect waves-light">ИНФО</span>
+            </div>
+		</header>
+	    <canvas id="plot"></canvas>
+        <div class="bottom-panel">
+            <span id="block_btn" class="btn-toggle waves-effect waves-light">block</span>
+            <span id="derivative_btn" class="btn-toggle waves-effect waves-light">Build derivative</span>
+        </div>
+	</div>
+	<!--modals-->
+	<div id="warning-rus" class="modal">
+		<div class="modal__window">
+			<header class="modal__header"><h3>Ошибка</h3></header>
+			<article class="modal__body">Выражение введено с ошибкой — повтори ввод! О правилах в выражениях читай в разделе ИНФО</article>
+			<footer class="modal__footer"></footer>
+		</div>
+	</div>
+
+    <div id="info-rus" class="modal">
+        <div class="modal__window">
+            <header class="modal__header"><h3>ИНФО</h3></header>
+            <article class="modal__body">
+                <p>Это приложение графически отображает введенные пользователем математические функции. То, что Вы вводите в форму - это правая часть выражения: y = выражение. </p>
+                <h4>Правила ввода выражений</h4>
+                <p>
+                    <h5>Синтаксис</h5>
+                    <p>Выражения имеют определенные правила — синтаксис</p>
+                    <ul>
+                        <li><b>Круглые скобки</b> — действуют как и в математике.</li>
+                        <li><b>+, —, *, /</b> — соответственно плюс, минус, умножить, разделить.</li>
+                        <li><b>^</b> — знак возведения в степень, например: <span class="example">x^2</span>.</li>
+                        <li><b>|выражение|</b> — модуль, например: <span class="example">|x|</span>.</li>
+                        <li><b>!</b> — факториал, например: <span class="example">5!</span> = 120.</li>
+                        <li><b>%</b> — процент, например: <span class="example">100%</span> =  1.</li>
+                    </ul>
+
+                    <h5>Переменные</h5>
+                    <p>Переменные в итоге становятся числом, которое изменяется по определенным законам, например переменная <var>mx</var> и <var>my</var> изменяют свои значение при перемещении мыши (или пальца по экрану).<p>
+                    <ul>
+                        <li><b>x</b> — обычный математический x, которая изменяется от минус бесконечности до плюс бесконечности (тут, конечно, только для видимой части графика).</li>
+                        <li><b>mx</b> — (Mouse X) координата мыши на графике по оси абцисс (x).</li>
+                        <li><b>my</b> — (Mouse Y) координата мыши на графике по оси ордит (y).</li>
+                        <li><b>time</b> — переменная времени в миллисекундах; отчет начинается с загрузки страницы.</li>
+                        <li><b>rnd</b> — (RaNDom) случайное рациональное число от 0 до 1, например: 0.3476161835397593.</li>
+                    </ul>
+
+                    <h5>Константы</h5>
+                    <p>Константы в итоге становятся числом, но в отличие от переменных — они постоянны, например, выражение <span class="example">PI</span> станет в итоге числом ПИ. Константы пишутся прописными буквами.</p>
+                    <ul>
+                        <li><b>PI</b> — число ПИ = 3.141592653589793.</li>
+                        <li><b>E</b> — экспонента (основание натурального логарифма) = 2.718281828459045.</li>
+                    </ul>
+
+                    <h5>Функции</h5>
+                    <p>Функции принимают определенные значения и возвращают результат (число). Функции имеют такой синтаксис: имя_функции(аргумент). Если аргументов нескольно — они перечисляются через зяпятую.</p>
+                    <ul>
+                        <li><b>sin</b> — синус.</li>
+                        <li><b>cos</b> — косинус.</li>
+                        <li><b>tg</b> — тангентс.</li>
+                        <li><b>ctg</b> — си-тангентс.</li>
+                        <li><b>sqrt</b> — квадратный корень.</li>
+                        <li><b>pow</b> — возведение в степень. Принимает два аргумента через запятую. Степень — рациональное число, например: <span class="example">pow(x, 0.5)</span>.</li>
+                        <li><b>log10</b> — логарифм по основанию 10.</li>
+                        <li><b>ln</b> — натуральный логарифм(по остованию E).</li>
+                        <li><b>log</b> — принимает два агрумента: log(выражение, основание)
+                        <li><b>arcsin</b> — арксинус.</li>
+                        <li><b>arccos</b> — арккосинус.</li>
+                        <li><b>abs</b> — модуль, например: <span class="example">sqrt(abs(x))</span>, но можно так: <span class="example">sqrt(|x|)</span>.</li>
+                        <li><b>rndi</b> (random integer) — случайное целое число в промежутке. Принимает два аргумента: rgdi(начало_промежутка, конец_промежутка), напимер: <span class="example">rndi(1, 10)</span> = случайное число от 1 до 10.
+                    </ul>
+                </p>
+                <h4>Обратная связь</h4>
+                <p>Если Вы хотите поделиться с автором своими впечатлениями, или Вы заметили ошибку и хотите о ней сообщить — Вы можете связаться с автором по электронной почте <a href="mailto:stanislavkalishin@gmail.com">Stanislav Kalishin</a>, или через социальную сеть Вконтакте <a href="https://vk.com/stanislavkalishin" target="_blank">stanislavkalishin@gmail.com</a>. Также, если Вы считаете, что это веб приложение может пригодиться вашим друзьям — Вы можете воспользоваться этой социальной кнопкой: <script type="text/javascript">document.write(VK.Share.button());</script>.
+                </p>
+                <h4>О приложении</h4>
+                <ul>
+                    <li>Версия приложения: 1.0 beta 1</li>
+                    <li>Лицензия MIT</li>
+                    <li>Дата последнего редактирования: 29.08.2018</li>
+                    <li>Автор: Калишин Станислав (github.com/whekin)</li>
+                    <li>Исходный код: <a href="https://github.com/whekin/whekin.github.io/experiments/coordinate_system/" target="_blank">github</a></li>
+                    <li>Сайт автора: <a href="https://whekin.github.io" target="_blank">whekin.github.io</a></li>
+                    <li>Электронная почта: <a href="https://vk.com/stanislavkalishin" target="_blank">stanislavkalishin@gmail.com</a></li>
+                </ul>
+
+                <h4>Смысл</h4>
+                <p>На самом деле похожие продукты уже есть. Очень неплохо реализован такой фукционал у Google. У данного приложения есть нерешенные проблемы по математической части в отличии от Google, но, преимущества тоже есть. Вообще, это приложение не должно с кем-то конкурировать - оно имеет открытый исходный код. Это приложение создано как практика знаний автора в программировании, но, думаю, оно может послужить на пользу (сам автор регулярно им пользуется).</p>
+                
+                <h4>Нерешенные (пока) задачи</h4>
+                <ul>
+                    <li>Обнаружение разрывов функций.</li>
+                    <li>Корректное отображение функций типа tan(x).</li>
+                    <li>Масштабирование графика не только скроллом, но и шипками на тачпаде ноутбука.</li>
+                    <li>Собственный парсер. Сейчас парсер — интерпритатор JavaScript. Это всечет за собой уезвимости. Т.е можно вводить не только математические выражения, но и выражения JavaScript. Если оставить этот интерпритатор, то нужно хотя бы обнаруживать не математические выражения...</li>
+                </ul>
+                <p>Когда решаться эти задачи — выйдет релиз. Возможно, будут внесены еще какие-то улучшения UI и UX.</p>
+            </article>
+            <footer class="modal__footer"></footer>
+        </div>
+    </div>
+
+    <div id="warning-eng" class="modal">
+        <div class="modal__window">
+            <header class="modal__header"><h3>Error</h3></header>
+            <article class="modal__body">The expression is written with mistake! About the rules of a expressions read in the article INFO</article>
+            <footer class="modal__footer"></footer>
+        </div>
+    </div>
+
+    <script src="js/device.min.js" defer></script>
+	<script src="js/waves.min.js"  defer></script>
+	<script src="build.js"         defer></script>
+
+
+      <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107043848-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        
+        function gtag(){dataLayer.push(arguments)};
+        gtag('js', new Date());
+
+        gtag('config', 'UA-107043848-1');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46314936 = new Ya.Metrika({
+                    id:46314936,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    ecommerce:"dataLayer"
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/46314936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</body>
+<html>

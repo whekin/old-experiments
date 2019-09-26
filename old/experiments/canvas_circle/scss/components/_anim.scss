@@ -1,0 +1,50 @@
+@keyframes set_open {
+	from {
+
+	}
+	to {
+		transform: translateY(calc(80vh));
+	}
+}
+
+@keyframes set_close {
+	from {
+		transform: translateY(calc(80vh));
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes settings_close {
+	from {
+
+	}
+	to {
+		transform: translateY(calc(-80vh));
+		opacity: 0.1;
+	}
+}
+
+@keyframes settings_open {
+	from {
+		transform: translateY(calc(-80vh));
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes warning_close {
+	50% {
+		transform-origin: 0 0;
+		transform: translateX(100vw);
+	}
+	to {
+		height: 0;
+		padding: 0;
+		transform: translateX(100vw);
+	}
+}

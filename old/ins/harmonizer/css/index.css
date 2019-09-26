@@ -1,0 +1,94 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #fafafa;
+	font: 16px 'Roboto', sans-serif;
+}
+
+body > header {
+	height: 59px;
+	width: 100%;
+	color: white;
+	background-color: #3F51B5;
+	line-height: 59px;
+	box-shadow: 0 4px 7px #ccc;
+	margin-bottom: 30px;
+}
+
+.logo {
+	font-size: 25px;
+	margin-left: calc(50% - 39px - 58px);
+	color: #fff;
+	font-family: 'Lobster', cursive;
+}
+
+.home {
+	margin-left: 15px;
+}
+
+main {
+	margin-bottom: 59px;
+}
+
+body > footer {
+	height: 59px;
+	width: 100%;
+	color: white;
+	background-color: #3F51B5;
+	line-height: 59px;
+	padding-left: 15px;
+	box-shadow: 0 0 4px #ccc;
+	position: fixed;
+	bottom: 0;
+
+}
+
+select {
+	background-color: #f0f0f0;
+	padding: 10px 10px;
+	color: #3F51B5;
+	font-size: 17px;
+	border-radius: 30px;
+	transition-duration: 0.3s;
+	margin: 30px 10px;
+}
+
+select:focus {
+	border-radius: 30px 30px 0 0;
+}
+
+select optgroup {
+	color: #323237;
+}
+
+select option {
+	color: #006064
+}
+
+output {
+	
+}
+
+output ul {
+	background-color: #FFC107;
+	padding: 20px 40px;
+}
+
+output ul li {
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 5px 15px;
+	margin: 5px;
+	border-radius: 15px;
+}
+
+.chord_name {
+	font-weight: 700;
+}
+
+.chord_notes {
+	color: rgba(255, 255, 255, 0.4);
+}

@@ -1,0 +1,157 @@
+/*
+ * app.css
+ * 
+ *
+*/
+@import './variables.css';
+@import './keyframes.css';
+@import './button.css';
+@import './modal.css';
+/*@import './waves-colors.css'*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: var(--global-font-size) 'Roboto', sans-serif;
+	overflow: hidden;
+	line-height: 150%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.content {
+	transition-duration: 1s;
+}
+
+.top-panel {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: var(--header-height);
+	background-color: var(--header-back-color);
+	box-shadow: var(--top-panel-box-shadow);
+	user-select: none;
+	z-index: 5;
+}
+
+.top-panel .funcs-set-wrap {
+	float: left;
+	display: flex;
+}
+
+.funcs-set-add-wrap {
+  	display: flex;
+	align-items: center;
+	height: inherit;
+	color: white;
+	font-size: 18px;
+	font-family: monospace;
+	white-space: nowrap;
+	overflow-x: auto;
+}
+
+.func-set {
+	height: var(--button-height);
+	animation: func_el_show ease-in 0.4s forwards;
+}
+
+.func-set.remove {
+	animation: func_el_del ease-out 0.4s forwards;
+}
+
+.bottom-panel {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: var(--bottom-panel-height);
+	background-color: var(--header-back-color);
+}
+
+#plot {
+	position: absolute;
+	top: var(--header-height);
+	left: 0;
+}
+
+.func-input {
+	border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
+	flex-shrink: 0;
+	padding: 0 1rem;
+}
+
+.del {
+	margin-left: 0;
+	box-shadow: 0 2px rgba(0, 0, 0, 0.15);
+	border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
+	color: #d32f2f;
+	font-weight: bold;
+	padding: 0 1rem;
+	text-shadow: 0 0 15px #fff;
+	background: #ef9a9a;
+}
+
+.del:hover {
+	background: #e57373;
+	color: white;
+}
+
+#add {
+	flex-shrink: 0;
+	text-align: center;
+	border-radius: 50%;
+	padding: 0 0;
+	width: var(--button-height);
+	height: var(--button-height);
+	line-height: var(--button-height);
+	font-size: var(--add-font-size);
+}
+
+#warning h3 {
+	color: #ef5350;
+}
+
+.info-wrap {
+	height: inherit;
+	display: flex;
+	align-items: center;
+}
+
+.info-btn {
+	padding: 0 1rem;
+	color: white;
+	margin-right: 15px;
+}
+
+#info-rus h1,
+#info-rus h2,
+#info-rus h3,
+#info-rus h4,
+#info-rus h5,
+#info-rus h6 {
+	color: #03a9f4;
+}
+
+#info-rus ul li {
+	list-style-type: none;
+}
+
+#info-rus ul li::before {
+	content: "☻";
+	padding-right: 10px;
+	color: #ffc107;
+}
+
+.example {
+	padding: 2px 3px;
+	font-size: 0.8rem;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.15);
+}

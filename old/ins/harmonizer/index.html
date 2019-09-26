@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gamma harmonizer</title>
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+	<link href="./css/index.css" rel="stylesheet">
+	
+</head>
+<body>
+	<header>
+		<span class="home">
+			<a href="https://heyght.github.io/" class="vertical-center">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24" style="fill: #fff;" height="24"
+				viewBox="0 0 24 24">
+					<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+			</svg>
+		</a>			
+		</span>
+		<span class="logo">Harmonizer</span>
+	</header>
+	<main>
+		<form>
+			<select id="select_tonality">
+				<optgroup label="Major">
+					<option value="c_maj" name="c_maj">До Мажор</option>
+					<option value="cd_maj" name="cd_maj">До диез Мажор</option>
+					<option value="d_maj" name="d_maj">Ре Мажор</option>
+					<option value="dd_maj" name="dd_maj">Ре диез Мажор</option>
+					<option value="e_maj" name="e_maj">Ми Мажор</option>
+					<option value="f_maj" name="f_maj">Фа Мажор</option>
+					<option value="fd_maj" name="fd_maj">Фа диез Мажор</option>
+					<option value="g_maj" name="g_maj">Соль Мажор</option>
+					<option value="gd_maj" name="gd_maj">Соль диез Мажор</option>
+					<option value="a_maj" name="a_maj">Ля Мажор</option>
+					<option value="ad_maj" name="ad_maj">Ля диез Мажор</option>
+					<option value="h_maj" name="h_maj">Си Мажор</option>
+				</optgroup>
+				<optgroup label="Minor">
+					<option value="c_min" name="c_min">До Минор</option>
+					<option value="cd_min" name="cd_min">До диез Минор</option>
+					<option value="d_min" name="d_min">Ре Минор</option>
+					<option value="dd_min" name="dd_min">Ре диез Минор</option>
+					<option value="e_min" name="e_min">Ми Минор</option>
+					<option value="f_min" name="f_min">Фа Минор</option>
+					<option value="fd_min" name="fd_min">Фа диез Минор</option>
+					<option value="g_min" name="g_min">Соль Минор</option>
+					<option value="gd_min" name="gd_min">Соль диез Минор</option>
+					<option value="a_min" name="a_min">Ля Минор</option>
+					<option value="ad_min" name="ad_min">Ля диез Минор</option>
+					<option value="h_min" name="h_min">Си Минор</option>
+				</optgroup>
+				
+			</select>
+		</form>
+		<output></output>
+	</main>
+	
+	
+	
+	<footer>Heyght 2018 MIT</footer>
+	<script src="./js/harmonizer.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>

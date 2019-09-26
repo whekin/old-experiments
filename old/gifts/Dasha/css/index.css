@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #fafafa;
+    font: 17px sans-serif;
+    filter: grayscale(100%) blur(3px);
+    animation: body_fil 1s 4s ease forwards;
+}
+
+@keyframes body_fil {
+    99% {
+        filter: grayscale(0) blur(0);
+    }
+
+    to {
+        filter: none;
+    }
+}
+
+
+#canvas_field {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+#get_circle {
+    all: unset;
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #afafaf;
+    color: #fff;
+    padding: 10px 15px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 0 5px #aaa;
+    transition-duration: 0.4s;
+}
+
+#get_circle:hover {
+    background-color: #aaa;
+}

@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# Версия 1.0
+
+CACHE:
+css/
+js/
+
+NETWORK:
+
+FALLBACK:

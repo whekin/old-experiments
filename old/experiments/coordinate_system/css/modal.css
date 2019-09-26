@@ -1,0 +1,97 @@
+
+.modal.active .modal__window {
+  animation: activate ease 0.4s forwards;
+}
+
+.modal.active {
+  z-index: 1000;
+  opacity: 1;
+}
+
+.modal.disactive .modal__window {
+  animation: disactive ease-out 0.4s forwards;
+}
+
+.modal.disactive {
+  z-index: -10;
+  opacity: 0;
+}
+
+@keyframes activate {
+  from{
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to{
+    z-index: 1000;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes disactive {
+  from{
+    opacity: 1;
+    tranform: scale(1);
+  }
+  99%{
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    z-index: -10;
+  }
+}
+
+.modal {
+  transition-duration: 0.2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -10;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__window {
+  background-color: #fcfcfc;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: 0 5px 50px 10px rgba(0, 0, 0, 0.3);
+  width: 60%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal__header {
+  font: normal 400 'Roboto';
+  font-size: 30px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  color: #222;
+}
+
+.modal__header h3 {
+  all: inherit;
+  font-size: 2.3rem;
+  font-weight: 300;
+}
+/*
+.modal_body {
+  
+}
+
+.modal_footer {
+
+}*/
+
+@media only screen and (max-width: 500px) {
+  .modal__window {
+    width: 85%;
+  }
+}

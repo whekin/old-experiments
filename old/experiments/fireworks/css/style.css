@@ -1,0 +1,28 @@
+body, html {
+    background-color: #283238;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    animation: start 1s ease forwards;
+}
+
+#canvas {
+    background-image: #fff;
+    position: absolute;
+    z-index: 5;
+    overflow: hidden;
+    opacity: 0;
+    animation: start-firework 400ms ease 1s forwards;
+}
+
+@keyframes start {
+    to {
+        background-color: #fefefe;
+    }
+}
+
+@keyframes start-firework {
+    to {
+        opacity: 1;
+    }
+}

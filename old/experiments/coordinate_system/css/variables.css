@@ -1,0 +1,16 @@
+
+:root {
+    --button-height: 36px;
+    --button-border-radius: 2px;
+
+    --add-font-size: 20px;
+
+    --global-font-size: 17px;
+
+    --header-height: 60px;
+    --header-back-color: #4FC3F7;
+
+
+    --bottom-panel-height: 50px;
+    --top-panel-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}

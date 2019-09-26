@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<!--
+	*
+	-->
+	<head>
+
+		<meta charset="utf-8">
+
+		<title></title>
+
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="author" content="Kalishin Stanislav">
+		<meta name="theme-color" content="">
+		<meta name="msapplication-navbutton-color" content="">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="">
+
+		<link rel="shortcut icon" href="" sizes="" type="">
+		<link rel="icon" href="" sizes="" type="">
+		<link rel="apple-touch-icon" href="">
+
+		<link href="" rel="stylesheet" media="">
+
+		<style>
+			@font-face {
+				font-family: "Comic";
+				src: local("Comic Sans MS"), url("");
+			}
+
+			body {
+				margin: 0;
+				background-color: #fcfcfc;
+				user-select: none;
+			}
+
+			.speed-container {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background-color: #263238;
+				color: #fff;
+				font: 300 30px/0 "Comic", sans-serif;
+				left: calc(50% - 100px);
+				top: calc(50% - 100px);
+				text-align: center;
+			}
+
+			#speed {
+
+				margin-top: calc(50%);
+			}
+
+			h1 {
+				text-align: center;
+				font: 300 50px "Comic", sans-serif;
+				color: #03a9f4;
+			}
+
+			#speedMax {
+				font: 300 16px "Comic", sans-serif;
+				margin-top: calc(15%);
+				color: #fefefe;
+			}
+		</style>
+
+		<script src=""></script>
+
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Спидометр</h1>
+		</header>
+
+		<main>
+			<div class="speed-container">
+				<div id="speed">Ожидание</div>
+				<div id="speedMax"></div>
+			</div>
+		</main>
+
+		<footer></footer>
+<!-- JS -->
+		   <!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107043848-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments)};
+		gtag('js', new Date());
+
+		gtag('config', 'UA-107043848-1');
+	</script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46314936 = new Ya.Metrika({
+                    id:46314936,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    ecommerce:"dataLayer"
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/46314936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+		<script src=""></script>
+
+		<script>
+
+			
+			let geo = {
+			    speed: -1,
+			    maxSpeed: -1
+		    }
+
+			navigator.geolocation.watchPosition((position) => {
+				geo.speed = +(position.coords.speed).toFixed(1);
+				let speedKm = +(geo.speed*3.6).toFixed(1);
+				
+				if (speedKm > geo.maxSpeed) {
+					geo.maxSpeed = speedKm;
+				}
+				
+				speed.innerHTML = speedKm + " км/ч";
+                speedMax.innerHTML = "max: "+geo.maxSpeed+" км/ч";
+			}, (error) => {
+				speed.innerHTML = "Ошибка...";
+
+				switch (error.code) {
+					case 1:
+						alert("Если у тебя смартфон/планшет с GPS, то включи геолокацию, перезагрузи страницу и разреши использование данных. Если компьютер, то просто добавить эту страницу в закладки, возьми смартфон, открой браузер, и найди в закладках эту страницу. Или можно просто открыть(на смартфоне) главную страницу (http://ru.eternity.xsph.ru) -> эксперименты -> Спидометр. Если это сообщение появляется на смартфоне – значит отключино местоположение.");
+						break;
+					case 2:
+						alert("Не могу получить данные...");
+						break;
+					case 3:
+						alert("Ты где вообще? Спутники видишь? — я нет.. ");
+						break;
+					default:
+
+				}
+			}, {
+				enableHighAccuracy: true,
+				timeout: 10000,
+				maximumAge: 1000
+			});
+
+
+		</script>
+
+	</body>
+<html>

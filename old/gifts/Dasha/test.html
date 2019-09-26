@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #fafafa;
+        }
+
+        #canvas_field {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas_field"></canvas>
+    <script src="js/vector.js"></script>
+    <script src="js/game_loop.js"></script>
+    <script src="js/inter.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/shape.js"></script>
+    <script>
+        let canvas = document.getElementById("canvas_field");
+        let inter = new Inter(canvas);
+        let ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        let game_loop = new Game_loop();
+
+        class Particle {
+            constructor(x, y, r) {
+                this.position = {};
+                this.position.x = x;
+                this.position.y = y;
+                this.radius = r;
+                this.velocity = new Vector(0, 0);
+                this.acceleration = new Vector(0, 0);
+            }
+
+            move() {
+                this.velocity.x += this.acceleration.x;
+                this.velocity.y += this.acceleration.y;
+
+                this.position.x += this.velocity.x;
+                this.position.y += this.velocity.y;
+            }
+
+            render() {
+                ctx.beginPath();
+                ctx.fillStyle = "#008899";
+                ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2, false);
+                ctx.fill();
+            }
+
+        }
+
+        let particle = new Particle(canvas.width/2, canvas.height/2, 20);
+
+
+        game_loop.setUpdate(() => {
+
+            particle.velocity = new Vector(inter.deltaX / 100, inter.deltaY/ 100);
+            if (particle.position.x + particle.velocity.x - particle.radius < 100
+                || particle.position.x + particle.velocity.x + particle.radius > canvas.width - 100
+                || particle.position.y + particle.velocity.y - particle.radius < 100
+                || particle.position.y + particle.velocity.y + particle.radius > canvas.height - 100
+            ){
+                particle.velocity.x *= -1;
+                particle.velocity.y *= -1;
+            }
+
+            particle.move();
+
+        });
+
+        game_loop.setRender(() => {
+            ctx.fillStyle = "#ddd";
+            ctx.fillRect(100, 100, canvas.width - 200, canvas.height - 200);
+            particle.render();
+        });
+
+        game_loop.start();
+    </script>
+</body>
+</html>
